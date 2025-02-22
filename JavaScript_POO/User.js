@@ -40,10 +40,29 @@ export default class User {
         this.#nome = novoNome
     }    
 
+    // exibirInfos(){
+    //     return `${this.nome}, ${this.email}`
+    // }
+
     exibirInfos(){
-        return `${this.nome}, ${this.email}`
+        if(this.role === 'estudante'){
+            return `dados ${this.role}: ${this.nome}, ${this.email}`
+        }
+
+        if(this.role === 'admin'){
+            return `dados ${this.role}: ${this.nome}, ${this.#role}`
+        }        
+
+        if(this.role === 'docente'){
+            return `dados ${this.role}: ${this.nome}, ${this.email}`
+        }
+    }    
+
+    static exibirInfosGenericas(nome, email){
+        return `$${nome}, ${email}`
     }
 }
+
 
 // const novoUser = new User('Juliana', 'j@j.com', '2024-01-01');
 // console.log(novoUser);
